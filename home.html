@@ -11,13 +11,6 @@
 
     <link rel="shortcut icon" href="favicon.ico"> <link href="css/bootstrap.min.css?v=3.3.5" rel="stylesheet">
     <link href="css/font-awesome.min.css?v=4.4.0" rel="stylesheet">
-
-    <!-- Morris -->
-    <link href="css/plugins/morris/morris-0.4.3.min.css" rel="stylesheet">
-
-    <!-- Gritter -->
-    <link href="js/plugins/gritter/jquery.gritter.css" rel="stylesheet">
-
     <link href="css/animate.min.css" rel="stylesheet">
     <link href="css/style.min.css?v=4.0.0" rel="stylesheet"><base target="_blank">
 
@@ -26,14 +19,26 @@
 <body class="gray-bg">
     <div class="wrapper wrapper-content">
         <div class="row">
-            <div class="col-sm-3">
-                <div class="panel panel-success">
-                    <div class="panel-heading">
-                        设备总览统计
+            <div class="col-sm-4">
+                <div class="col-sm-12">
+                    <div class="panel panel-success">
+                        <div class="panel-heading">
+                            设备总览统计
+                        </div>
+                        <div class="panel-body">
+                            <p>设备总数</p>
+                            <div id="main" style="width: 100%; height: 150px;"></div>
+                        </div>
                     </div>
-                    <div class="panel-body">
-                        <p>设备总数</p>
-                        <div id="main" style="width: 100%; height: 150px;"></div>
+                </div>
+                <div class="col-sm-12">
+                    <div class="panel panel-success">
+                        <div class="panel-heading">
+                            设备故障统计
+                        </div>
+                        <div class="panel-body">
+                            <div id="main2" style="width: 100%; height: 180px;"></div>
+                        </div>
                     </div>
                 </div>
                 <!--<div class="ibox float-e-margins">-->
@@ -47,84 +52,133 @@
                     <!--</div>-->
                 <!--</div>-->
             </div>
-            <div class="col-sm-9">
+            <div class="col-sm-8">
+
+                <!--页面右侧布局-->
                 <div class="panel panel-success">
                     <div class="panel-heading">
-                        工厂监控中心
+                        实验台监控中心
                     </div>
+
                     <div class="panel-body">
 
-                        <div class="col-sm-4">
-                            <div class="panel panel-info">
-                                <div class="panel-heading">
-                                    试验机一
+                        <div class="col-lg-12">
+                            <!--右侧导航栏-->
+                            <div class="ibox">
+                                <div class="ibox-title">
+                                    <select data-placeholder="..." class="chosen-select" style="width:100px;">
+                                        <option value="110000">昆山</option>
+                                        <option value="110000">昆山</option>
+                                    </select>
+                                    <select data-placeholder="..." class="chosen-select" style="width:100px;" tabindex="2">
+                                        <option value="110000" hassubinfo="true">上层</option>
+                                        <option value="110000" hassubinfo="true">上层</option>
+                                    </select>
+                                    <select data-placeholder="..." class="chosen-select" style="width:100px;" tabindex="2">
+                                        <option value="110000" hassubinfo="true">全部</option>
+                                    </select>
+
+                                    <div class="ibox-tools">
+                                        <button type="button" class="btn btn-xs btn-outline btn-info">列表</button>
+                                        <button type="button" class="btn btn-xs btn-outline btn-success">矩阵</button>
+                                    </div>
                                 </div>
-                                <div class="panel-body">
+
+                                <div class="col-lg-12">
+                                    <div class="pull-right">
+                                        <span class="badge">！</span>&nbsp设备停机状态&nbsp
+                                        <span class="badge badge-info">！</span>&nbsp设备正常状态&nbsp
+                                        <span class="badge badge-warning">！</span>&nbsp设备中级报警&nbsp
+                                        <span class="badge badge-danger">！</span>&nbsp设备高级报警
+                                    </div>
+                                </div>
+
+
+                                <div class="ibox-content">
+
+                                    <div class="col-sm-4">
+                                        <div class="panel panel-info">
+                                            <div class="panel-heading">
+                                                试验机一
+                                            </div>
+                                            <div class="panel-body">
+                                                <a class="J_menuItem" href="machine.html">
+                                                    <img src="images/machine.png" style="width: 100%;height: 100%">
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-sm-4">
+                                        <div class="panel panel-warning">
+                                            <div class="panel-heading">
+                                                试验机二
+                                            </div>
+                                            <div class="panel-body">
+                                                <img src="images/machine.png" style="width: 100%;height: 100%">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-sm-4">
+                                        <div class="panel panel-danger">
+                                            <div class="panel-heading">
+                                                试验机三
+                                            </div>
+                                            <div class="panel-body">
+                                                <img src="images/machine.png" style="width: 100%;height: 100%">
+                                            </div>
+                                        </div>
+                                    </div>
 
                                 </div>
-                            </div>
-                        </div>
 
-                        <div class="col-sm-4">
-                            <div class="panel panel-warning">
-                                <div class="panel-heading">
-                                    试验机二
-                                </div>
-                                <div class="panel-body">
+                                <div class="ibox-content">
+
+                                    <div class="col-sm-4">
+                                        <div class="panel panel-info">
+                                            <div class="panel-heading">
+                                                试验机四
+                                            </div>
+                                            <div class="panel-body">
+                                                <img src="images/machine.png" style="width: 100%;height: 100%">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-sm-4">
+                                        <div class="panel panel-info">
+                                            <div class="panel-heading">
+                                                试验机五
+                                            </div>
+                                            <div class="panel-body">
+                                                <img src="images/machine.png" style="width: 100%;height: 100%">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-sm-4">
+                                        <div class="panel panel-info">
+                                            <div class="panel-heading">
+                                                试验机六
+                                            </div>
+                                            <div class="panel-body">
+                                                <img src="images/machine.png" style="width: 100%;height: 100%">
+                                            </div>
+                                        </div>
+                                    </div>
 
                                 </div>
-                            </div>
-                        </div>
 
-                        <div class="col-sm-4">
-                            <div class="panel panel-danger">
-                                <div class="panel-heading">
-                                    试验机三
-                                </div>
-                                <div class="panel-body">
-
-                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
-        <div class="row">
-            <div class="col-sm-3">
-                <div class="panel panel-success">
-                    <div class="panel-heading">
-                        设备故障统计
-                    </div>
-                    <div class="panel-body">
-                        <div id="main2" style="width: 100%; height: 180px;"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
     </div>
 
-    <!--<script src="js/jquery.min.js?v=2.1.4"></script>-->
-    <!--<script src="js/bootstrap.min.js?v=3.3.5"></script>-->
-    <!--<script src="js/plugins/flot/jquery.flot.js"></script>-->
-    <!--<script src="js/plugins/flot/jquery.flot.tooltip.min.js"></script>-->
-    <!--<script src="js/plugins/flot/jquery.flot.spline.js"></script>-->
-    <!--<script src="js/plugins/flot/jquery.flot.resize.js"></script>-->
-    <!--<script src="js/plugins/flot/jquery.flot.pie.js"></script>-->
-    <!--<script src="js/plugins/flot/jquery.flot.symbol.js"></script>-->
-    <!--<script src="js/plugins/peity/jquery.peity.min.js"></script>-->
-    <!--<script src="js/demo/peity-demo.min.js"></script>-->
-    <!--<script src="js/content.min.js?v=1.0.0"></script>-->
-    <!--<script src="js/plugins/jquery-ui/jquery-ui.min.js"></script>-->
-    <!--<script src="js/plugins/jvectormap/jquery-jvectormap-1.2.2.min.js"></script>-->
-    <!--<script src="js/plugins/jvectormap/jquery-jvectormap-world-mill-en.js"></script>-->
-    <!--<script src="js/plugins/easypiechart/jquery.easypiechart.js"></script>-->
-    <!--<script src="js/plugins/sparkline/jquery.sparkline.min.js"></script>-->
-    <!--<script src="js/demo/sparkline-demo.min.js"></script>-->
     <script src="js/plugins/echarts/echarts.js"></script>
-
 
     <script>
         var myChart = echarts.init(document.getElementById('main'));
