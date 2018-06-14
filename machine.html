@@ -7,10 +7,15 @@
     <title>设备健康中心</title>
 
     <link rel="shortcut icon" href="favicon.ico">
+
     <link href="css/bootstrap.min.css?v=3.3.5" rel="stylesheet">
     <link href="css/font-awesome.min.css?v=4.4.0" rel="stylesheet">
-    <link href="css/plugins/awesome-bootstrap-checkbox/awesome-bootstrap-checkbox.css" rel="stylesheet">
-    <link href="css/plugins/clockpicker/clockpicker.css" rel="stylesheet">
+
+    <link href="css/plugins/iCheck/custom.css" rel="stylesheet">
+
+    <link href="css/plugins/fullcalendar/fullcalendar.css" rel="stylesheet">
+    <!--<link href="css/plugins/fullcalendar/fullcalendar.print.css" rel="stylesheet">-->
+
     <link href="css/animate.min.css" rel="stylesheet">
     <link href="css/style.min.css?v=4.0.0" rel="stylesheet"><base target="_blank">
 </head>
@@ -39,82 +44,126 @@
                                 <div class="row">
                                     <div class="col-lg-4">
                                         <img class="col-lg-12" src="images/machine.png">
-                                        <div id="main1" class="col-lg-6" style="height: 150px;"></div>
-                                        <div id="main2" class="col-lg-6" style="height: 150px;"></div>
-                                        <div id="main3" class="col-lg-6" style="height: 150px;"></div>
-                                        <div id="main4" class="col-lg-6" style="height: 150px;"></div>
+                                        <div id="main1" class="col-lg-6 echarts"></div>
+                                        <div id="main2" class="col-lg-6 echarts"></div>
+                                        <div id="main3" class="col-lg-6 echarts"></div>
+                                        <div id="main4" class="col-lg-6 echarts"></div>
                                     </div>
-                                    <div class="col-lg-3">
-                                        <div class="panel-body">
-                                            <ul class="todo-list m-t">
-                                                <li>
-                                                    <span class="m-l-xs">选择通道</span>
-                                                    <span class="m-l-xs">单位</span>
-                                                </li>
-                                                <li>
-                                                    <input type="checkbox" value="" name="" class="i-checks" />
-                                                    <span class="m-l-xs">通道01</span>
-                                                    <small class="label">
-                                                        m/2
-                                                    </small>
-                                                </li>
-                                                <li>
-                                                    <input type="checkbox" value="" name="" class="i-checks" />
-                                                    <span class="m-l-xs">通道01</span>
-                                                    <small class="label">
-                                                        m/2
-                                                    </small>
-                                                </li>
-                                                <li>
-                                                    <input type="checkbox" value="" name="" class="i-checks" />
-                                                    <span class="m-l-xs">通道01</span>
-                                                    <small class="label">
-                                                        m/2
-                                                    </small>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <!--<table class="table">-->
-                                            <!--<thead>-->
-                                                <!--<tr>-->
-                                                    <!--<th>选择通道</th>-->
-                                                    <!--<th>单位</th>-->
-                                                <!--</tr>-->
-                                            <!--</thead>-->
-                                            <!--<tbody>-->
-                                                <!--<tr>-->
-                                                    <!--<td>-->
-                                                        <!--<div class="checkbox checkbox-info checkbox-circle">-->
-                                                            <!--<input id="checkbox1" type="checkbox">-->
-                                                            <!--<label for="checkbox1">通道01</label>-->
-                                                        <!--</div>-->
-                                                    <!--</td>-->
-                                                    <!--<td>m/s</td>-->
-                                                <!--</tr>-->
-                                                <!--<tr>-->
-                                                    <!--<td>-->
-                                                        <!--<div class="checkbox checkbox-info checkbox-circle">-->
-                                                            <!--<input id="checkbox2" type="checkbox">-->
-                                                            <!--<label for="checkbox2">通道02</label>-->
-                                                        <!--</div>-->
-                                                    <!--</td>-->
-                                                    <!--<td>m/s</td>-->
-                                                <!--</tr>-->
-                                                <!--<tr>-->
-                                                    <!--<td>-->
-                                                        <!--<div class="checkbox checkbox-info checkbox-circle">-->
-                                                            <!--<input id="checkbox3" type="checkbox">-->
-                                                            <!--<label for="checkbox3">通道03</label>-->
-                                                        <!--</div>-->
-                                                    <!--</td>-->
-                                                    <!--<td>m/s</td>-->
-                                                <!--</tr>-->
-                                            <!--</tbody>-->
-                                        <!--</table>-->
-                                    </div>
+                                    <!--<div class="col-lg-2">-->
+                                        <!--<div class="panel-body">-->
+                                            <!--<ul class="todo-list m-t">-->
+                                                <!--<li>-->
+                                                    <!--<span class="m-l-xs">选择通道</span>-->
+                                                    <!--<span class="m-l-xs">单位</span>-->
+                                                <!--</li>-->
+                                                <!--<li>-->
+                                                    <!--<input type="checkbox" value="" name="" class="i-checks" />-->
+                                                    <!--<span class="m-l-xs">通道01</span>-->
+                                                    <!--<small class="label">-->
+                                                        <!--m/2-->
+                                                    <!--</small>-->
+                                                <!--</li>-->
+                                                <!--<li>-->
+                                                    <!--<input type="checkbox" value="" name="" class="i-checks" />-->
+                                                    <!--<span class="m-l-xs">通道02</span>-->
+                                                    <!--<small class="label">-->
+                                                        <!--m/2-->
+                                                    <!--</small>-->
+                                                <!--</li>-->
+                                                <!--<li>-->
+                                                    <!--<input type="checkbox" value="" name="" class="i-checks" />-->
+                                                    <!--<span class="m-l-xs">通道03</span>-->
+                                                    <!--<small class="label">-->
+                                                        <!--m/2-->
+                                                    <!--</small>-->
+                                                <!--</li>-->
+                                                <!--<li>-->
+                                                    <!--<input type="checkbox" value="" name="" class="i-checks" />-->
+                                                    <!--<span class="m-l-xs">通道04</span>-->
+                                                    <!--<small class="label">-->
+                                                        <!--m/2-->
+                                                    <!--</small>-->
+                                                <!--</li>-->
+                                                <!--<li>-->
+                                                    <!--<input type="checkbox" value="" name="" class="i-checks" />-->
+                                                    <!--<span class="m-l-xs">通道05</span>-->
+                                                    <!--<small class="label">-->
+                                                        <!--m/2-->
+                                                    <!--</small>-->
+                                                <!--</li>-->
+                                                <!--<li>-->
+                                                    <!--<input type="checkbox" value="" name="" class="i-checks" />-->
+                                                    <!--<span class="m-l-xs">通道06</span>-->
+                                                    <!--<small class="label">-->
+                                                        <!--m/2-->
+                                                    <!--</small>-->
+                                                <!--</li>-->
+                                            <!--</ul>-->
+                                        <!--</div>-->
+                                        <!--&lt;!&ndash;<table class="table">&ndash;&gt;-->
+                                            <!--&lt;!&ndash;<thead>&ndash;&gt;-->
+                                                <!--&lt;!&ndash;<tr>&ndash;&gt;-->
+                                                    <!--&lt;!&ndash;<th>选择通道</th>&ndash;&gt;-->
+                                                    <!--&lt;!&ndash;<th>单位</th>&ndash;&gt;-->
+                                                <!--&lt;!&ndash;</tr>&ndash;&gt;-->
+                                            <!--&lt;!&ndash;</thead>&ndash;&gt;-->
+                                            <!--&lt;!&ndash;<tbody>&ndash;&gt;-->
+                                                <!--&lt;!&ndash;<tr>&ndash;&gt;-->
+                                                    <!--&lt;!&ndash;<td>&ndash;&gt;-->
+                                                        <!--&lt;!&ndash;<div class="checkbox checkbox-info checkbox-circle">&ndash;&gt;-->
+                                                            <!--&lt;!&ndash;<input id="checkbox1" type="checkbox">&ndash;&gt;-->
+                                                            <!--&lt;!&ndash;<label for="checkbox1">通道01</label>&ndash;&gt;-->
+                                                        <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                                                    <!--&lt;!&ndash;</td>&ndash;&gt;-->
+                                                    <!--&lt;!&ndash;<td>m/s</td>&ndash;&gt;-->
+                                                <!--&lt;!&ndash;</tr>&ndash;&gt;-->
+                                                <!--&lt;!&ndash;<tr>&ndash;&gt;-->
+                                                    <!--&lt;!&ndash;<td>&ndash;&gt;-->
+                                                        <!--&lt;!&ndash;<div class="checkbox checkbox-info checkbox-circle">&ndash;&gt;-->
+                                                            <!--&lt;!&ndash;<input id="checkbox2" type="checkbox">&ndash;&gt;-->
+                                                            <!--&lt;!&ndash;<label for="checkbox2">通道02</label>&ndash;&gt;-->
+                                                        <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                                                    <!--&lt;!&ndash;</td>&ndash;&gt;-->
+                                                    <!--&lt;!&ndash;<td>m/s</td>&ndash;&gt;-->
+                                                <!--&lt;!&ndash;</tr>&ndash;&gt;-->
+                                                <!--&lt;!&ndash;<tr>&ndash;&gt;-->
+                                                    <!--&lt;!&ndash;<td>&ndash;&gt;-->
+                                                        <!--&lt;!&ndash;<div class="checkbox checkbox-info checkbox-circle">&ndash;&gt;-->
+                                                            <!--&lt;!&ndash;<input id="checkbox3" type="checkbox">&ndash;&gt;-->
+                                                            <!--&lt;!&ndash;<label for="checkbox3">通道03</label>&ndash;&gt;-->
+                                                        <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                                                    <!--&lt;!&ndash;</td>&ndash;&gt;-->
+                                                    <!--&lt;!&ndash;<td>m/s</td>&ndash;&gt;-->
+                                                <!--&lt;!&ndash;</tr>&ndash;&gt;-->
+                                            <!--&lt;!&ndash;</tbody>&ndash;&gt;-->
+                                        <!--&lt;!&ndash;</table>&ndash;&gt;-->
+                                    <!--</div>-->
 
-                                    <div class="col-lg-5">
-                                        <!--<img src="images/machine.png" style="width: 100%;height: 100%">-->
+                                    <div class="col-lg-8">
+                                        <div class="panel-heading">
+                                            <strong class="fa-2x">实时数据</strong>
+                                        </div>
+                                        <div class="panel-body">
+                                            <div id="main5" class="col-lg-12" style="height: 400px"></div>
+                                        </div>
+                                        <div class="panel-heading">
+                                            <strong class="fa-2x">全局图</strong>
+                                        </div>
+                                        <div class="panel-body">
+                                            <div id="main6" class="col-lg-12" style="height: 100px"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <div class="panel-heading">
+                                            <strong class="fa-2x">生命周期管理</strong>
+                                        </div>
+                                        <div class="panel-body">
+                                            <div class="ibox-content">
+                                                <div id="calendar"></div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -128,6 +177,38 @@
 
     <script src="js/jquery.min.js"></script>
     <script src="js/plugins/echarts/echarts.js"></script>
+    <script src="js/plugins/echarts/echartsM.js"></script>
+    <script src="js/plugins/iCheck/icheck.min.js"></script>
+    <script src="js/plugins/fullcalendar/fullcalendar.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            var b = new Date();
+            var c = b.getDate();
+            var a = b.getMonth();
+            var e = b.getFullYear();
+            $("#calendar").fullCalendar({
+                header:{
+                    left:"prev,next",
+                    center:"title",
+                    right:"month,agendaWeek,agendaDay"
+                },
+                editable:true,
+                droppable:true,
+                drop:function(g,h){
+                    var f=$(this).data("eventObject");
+                    var d=$.extend({},f);
+                    d.start = g;
+                    d.allDay = h;
+                    $("#calendar").fullCalendar("renderEvent",d,true);
+                    if($("#drop-remove").is(":checked")){
+                        $(this).remove()
+                    }
+                },events:[
+
+                ]
+            })
+        });
+    </script>
     <script>
         option = {
             tooltip : {
@@ -135,25 +216,32 @@
             },
             series : [
                 {
-                    name:'业务指标',
+                    name:'实时数据',
                     type:'gauge',
                     splitNumber: 5,        // 分割段数，默认为5
                     axisLine: {            // 坐标轴线
                         lineStyle: {       // 属性lineStyle控制线条样式
                             color: [[0.8, '#1E90FF'],[1, '#ff4500']],
-                            width: 3
+                            width: 5
                         }
                     },
                     axisTick: {            // 坐标轴小标记
                         splitNumber: 10,   // 每份split细分多少段
-                        length :3,        // 属性length控制线长
+                        length :7,        // 属性length控制线长
                         lineStyle: {       // 属性lineStyle控制线条样式
                             color: 'auto'
                         }
                     },
+                    axisLabel: {
+                        show: true,        // 坐标轴文本标签，详见axis.axisLabel
+                        textStyle: {       // 其余属性默认使用全局文本样式，详见TEXTSTYLE
+                            color: 'auto',
+                            fontSize:8
+                        }
+                    },
                     splitLine: {           // 分隔线
                         show: true,        // 默认显示，属性show控制显示与否
-                        length :2,         // 属性length控制线长
+                        length :10,         // 属性length控制线长
                         lineStyle: {       // 属性lineStyle（详见lineStyle）控制线条样式
                             color: 'auto'
                         }
@@ -161,20 +249,26 @@
                     title : {
                         textStyle: {       // 其余属性默认使用全局文本样式，详见TEXTSTYLE
                             fontWeight: 'bolder',
-                            fontSize: 2,
+                            fontSize: 10,
                             fontStyle: 'italic'
                         }
                     },
                     pointer : {
                         width : 2
                     },
-                    data:[{value: 50, name: ''}]
+                    detail : {
+                        textStyle: {       // 其余属性默认使用全局文本样式，详见TEXTSTYLE
+                            fontWeight: 'bolder',
+                            fontSize: 25,
+                        }
+                    },
+                    data:[{value: 50, name: '转速rpm'}]
                 }
             ]
         };
 
         setInterval(function (){
-            option.series[0].data[0].value = (Math.random()*100).toFixed(2) - 0;
+            option.series[0].data[0].value = Math.floor(Math.random()*100);
             myChart1.setOption(option,true);
             myChart2.setOption(option,true);
             myChart3.setOption(option,true);
@@ -189,6 +283,176 @@
         myChart2.setOption(option);
         myChart3.setOption(option);
         myChart4.setOption(option);
+
+        require.config({
+            paths: {
+                echarts: './js/plugins/echarts'
+            }
+        });
+
+        require(
+            [
+                'echarts',
+                'echarts/chart/line',
+            ],
+            function (ec) {
+
+                var myChart5 = ec.init(document.getElementById('main5'));
+                myChart5.setOption({
+                    tooltip : {
+                        trigger: 'axis'
+                    },
+                    grid:{
+                        x:'20%',
+                        y:'10%',
+                        x2:'10%',
+                        y2:'10%',
+                        borderWidth:1
+                    },
+                    legend: {
+                        orient: 'vertical',
+                        x: 'left',
+                        data:['通道1','通道2','通道3','通道4','通道5','通道6','通道7','通道8','通道9','通道10','通道11','通道12','通道13','通道14','通道15','通道16']
+                    },
+                    toolbox: {
+                        show : true,
+                        feature : {
+                            restore : {show: true},
+                            saveAsImage : {show: true}
+                        }
+                    },
+                    calculable : true,
+                    xAxis : [
+                        {
+                            type : 'category',
+                            boundaryGap : true,
+                            data : ['1','2','3','4','5','6','7']
+                        }
+                    ],
+                    yAxis : [
+                        {
+                            type : 'value',
+                            axisLabel : {
+                                formatter: '{value} °C'
+                            }
+                        }
+                    ],
+                    series : [
+                        {
+                            name:'通道1',
+                            type:'line',
+                            stack: '总量',
+                            data:[120, 132, 101, 134, 90, 230, 210]
+                        },
+                        {
+                            name:'通道2',
+                            type:'line',
+                            stack: '总量',
+                            data:[220, 182, 191, 234, 290, 330, 310]
+                        },
+                        {
+                            name:'通道3',
+                            type:'line',
+                            stack: '总量',
+                            data:[150, 232, 201, 154, 190, 330, 410]
+                        },
+                        {
+                            name:'通道4',
+                            type:'line',
+                            stack: '总量',
+                            data:[320, 332, 301, 334, 390, 330, 320]
+                        },
+                        {
+                            name:'通道5',
+                            type:'line',
+                            stack: '总量',
+                            data:[820, 932, 901, 934, 1290, 1330, 1320],
+                            markPoint : {
+                                data : [
+                                    {type : 'max', name: '最大值'},
+                                    {type : 'min', name: '最小值'}
+                                ]
+                            },
+                            markLine : {
+                                data : [
+                                    {type : 'average', name: '平均值'}
+                                ]
+                            }
+                        }
+                    ]
+                });
+
+                var myChart6 = ec.init(document.getElementById('main6'));
+                myChart6.setOption({
+                    tooltip : {
+                        trigger: 'axis'
+                    },
+                    grid:{
+                        x:0,
+                        y:'20%',
+                        x2:0,
+                        height: '30%',
+                        borderWidth:1
+                    },
+                    toolbox: {
+                        show : true,
+                        feature : {
+                            // saveAsImage : {show: true}
+                        }
+                    },
+                    dataZoom : {
+                        show : true,
+                        realtime : true,
+                        //orient: 'vertical',   // 'horizontal'
+                        x: 0,
+                        y: 0,
+                        //width: 400,
+                        height: 20,
+                        //backgroundColor: 'rgba(221,160,221,0.5)',
+                        dataBackgroundColor: 'rgba(138,43,226,0.5)',
+                        //fillerColor: 'rgba(38,143,26,0.6)',
+                        //handleColor: 'rgba(128,43,16,0.8)',
+                        //xAxisIndex:[],
+                        //yAxisIndex:[],
+                        start : 40,
+                        end : 60
+                    },
+                    xAxis : [
+                        {
+                            type : 'category',
+                            boundaryGap : false,
+                            data : function (){
+                                var list = [];
+                                var n = 0;
+                                while (n++ < 150) {
+                                    list.push(n);
+                                }
+                                return list;
+                            }()
+                        }
+                    ],
+                    yAxis : [
+                        {
+                            show : false,
+                            type : 'value'
+                        }
+                    ],
+                    series : [
+                        {
+                            name:'dz',
+                            type:'line',
+                            data:function (){
+                                var list = [];
+                                for (var i = 1; i <= 150; i++) {
+                                    list.push(Math.round(Math.random()* 30));
+                                }
+                                return list;
+                            }()
+                        }
+                    ],
+                    calculable:false
+                });
+            });
     </script>
 </body>
 </html>
