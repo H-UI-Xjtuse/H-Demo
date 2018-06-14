@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>振动趋势图</title>
+
+    <link rel="shortcut icon" href="favicon.ico">
+
+    <link href="css/bootstrap.min.css?v=3.3.5" rel="stylesheet">
+    <link href="css/font-awesome.min.css?v=4.4.0" rel="stylesheet">
+
+    <link href="css/animate.min.css" rel="stylesheet">
+    <link href="css/style.min.css?v=4.0.0" rel="stylesheet"><base target="_blank">
+</head>
+<body  class="gray-bg">
+<div class="wrapper wrapper-content">
+    <div class="row">
+        <div class="col-lg-12">
+            <!--数据模板-->
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    振动趋势图：试验机一
+                </div>
+                <div class="panel-body">
+                    <div class="col-lg-12">
+                        <div class="panel-body">
+                            <div id="main5" class="col-lg-12" style="height: 300px"></div>
+                        </div>
+                        <div class="panel-body">
+                            <div id="main6" class="col-lg-12" style="height: 300px"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://d3js.org/d3.v4.min.js"></script>
+
+<script src="js/jquery.min.js"></script>
+<script src="js/plugins/echarts/echarts.js"></script>
+<script src="js/plugins/echarts/echartsM.js"></script>
+
+<script>
+
+    require.config({
+        paths: {
+            echarts: './js/plugins/echarts'
+        }
+    });
+
+    require(
+        [
+            'echarts',
+            'echarts/chart/line',
+        ],
+        function (ec) {
+
+            var myChart5 = ec.init(document.getElementById('main5'));
+            myChart5.setOption({
+                title : {
+                    x : 0,
+                    y : 0,
+                    text:"波形图-加速度（2018-06-14 08:07:28）"
+                },
+                tooltip : {
+                    trigger: 'axis'
+                },
+                toolbox: {
+                    show : true,
+                    feature : {
+                        restore : {show: true},
+                        saveAsImage : {show: true}
+                    }
+                },
+                calculable : true,
+                xAxis : [
+                    {
+                        type : 'category',
+                        boundaryGap : true,
+                        data : ['1','2','3','4','5','6','7']
+                    }
+                ],
+                yAxis : [
+                    {
+                        type : 'value',
+                        axisLabel : {
+                            formatter: '{value} °C'
+                        }
+                    }
+                ],
+                series : [
+                    {
+                        name:'1',
+                        type:'line',
+                        stack: '总量',
+                        data:[820, 932, 901, 934, 1290, 1330, 1320],
+                        markPoint : {
+                            data : [
+                                {type : 'max', name: '最大值'},
+                                {type : 'min', name: '最小值'}
+                            ]
+                        },
+                        markLine : {
+                            data : [
+                                {type : 'average', name: '平均值'}
+                            ]
+                        }
+                    }
+                ]
+            });
+
+            var myChart6 = ec.init(document.getElementById('main6'));
+            myChart6.setOption({
+                title : {
+                    x : 0,
+                    y : 0,
+                    text:"频谱图-加速度（2018-06-14 08:07:28）"
+                },
+                tooltip : {
+                    trigger: 'axis'
+                },
+                toolbox: {
+                    show : true,
+                    feature : {
+                        restore : {show: true},
+                        saveAsImage : {show: true}
+                    }
+                },
+                calculable : true,
+                xAxis : [
+                    {
+                        type : 'category',
+                        boundaryGap : true,
+                        data : ['1','2','3','4','5','6','7']
+                    }
+                ],
+                yAxis : [
+                    {
+                        type : 'value',
+                        axisLabel : {
+                            formatter: '{value} m/s'
+                        }
+                    }
+                ],
+                series : [
+                    {
+                        name:'1',
+                        type:'line',
+                        stack: '总量',
+                        data:[820, 932, 901, 934, 1290, 1330, 1320],
+                    }
+                ]
+            });
+        });
+</script>
+</body>
+</html>
